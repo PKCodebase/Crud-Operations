@@ -48,6 +48,17 @@ public class MstPlanType {
     @Column(name = "created_ip_add",nullable=false)
     private String createdIpAdd;
 
+    @Column(name = "created_mac_add")
+    private String macAddress;
+
+
+    @Column(name = "created_remarks" )
+    private String remarks;
+
+    @Column(name = "created_uri ")
+    private String uri;
+
+
     public Boolean getActive() {
         return isActive;
     }
@@ -126,5 +137,37 @@ public class MstPlanType {
 
     public void setCreatedDateTime(LocalDateTime createdDateTime) {
         this.createdDateTime = createdDateTime;
+    }
+
+    public String getCreatedIpAdd() {
+        return createdIpAdd;
+    }
+
+    public void setCreatedIpAdd(String createdIpAdd) {
+        this.createdIpAdd = createdIpAdd;
+    }
+
+    public String getMacAddress() {
+        return macAddress;
+    }
+
+    public void setMacAddress(String macAddress) {
+        this.macAddress = macAddress;
+    }
+
+    public String getRemarks() {
+        return remarks;
+    }
+
+    public void setRemarks(String remarks) {
+        this.remarks = remarks;
+    }
+
+    public String getUri() {
+        return uri;
+    }
+
+    public void setUri(String uri) {
+        this.uri = uri;
     }
 }

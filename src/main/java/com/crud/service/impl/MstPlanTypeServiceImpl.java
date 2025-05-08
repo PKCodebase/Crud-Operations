@@ -37,6 +37,7 @@ public class MstPlanTypeServiceImpl implements MstPlanTypeService {
         existingData.setPlanTypeNameRl(updatedData.getPlanTypeNameRl());
         existingData.setPlanTypeDescription(updatedData.getPlanTypeDescription());
         existingData.setCreatedBy(updatedData.getCreatedBy());
+        existingData.setRemarks(updatedData.getRemarks());
         return mstPlanTypeRepository.save(existingData);
 
     }
