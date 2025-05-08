@@ -4,6 +4,7 @@ import com.fasterxml.jackson.annotation.JsonFormat;
 import jakarta.persistence.*;
 
 import org.hibernate.annotations.CreationTimestamp;
+import org.hibernate.annotations.UpdateTimestamp;
 
 import java.time.LocalDateTime;
 
@@ -41,7 +42,7 @@ public class MstPlanType {
 
     @Column(name = "created_date",nullable = false, updatable=false )
     @CreationTimestamp
-    @JsonFormat(pattern = "dd-MM-yyyy")
+    @JsonFormat(pattern = "dd-MM-yyyy  hh:mm:ss")
     private LocalDateTime createdDateTime;
 
 
@@ -58,6 +59,25 @@ public class MstPlanType {
     @Column(name = "created_uri ")
     private String uri;
 
+    @Column(name = "modified_by")
+    private String modifiedBy;
+
+    @Column(name = "modified_date")
+    @UpdateTimestamp
+    @JsonFormat(pattern = "dd-MM-yyyy  hh:mm:ss")
+    private LocalDateTime modifiedDateTime;
+
+    @Column(name="modified_ip_add")
+    private String modifiedIpAdd;
+
+    @Column(name="modified_mac_add")
+    private String modifiedMacAdd;
+
+    @Column(name="modified_remarks ")
+    private String modifiedRemarks;
+
+    @Column(name="modified_uri ")
+    private String modifiedUri;
 
     public Boolean getActive() {
         return isActive;
@@ -170,4 +190,53 @@ public class MstPlanType {
     public void setUri(String uri) {
         this.uri = uri;
     }
+
+    public String getModifiedBy() {
+        return modifiedBy;
+    }
+
+    public void setModifiedBy(String modifiedBy) {
+        this.modifiedBy = modifiedBy;
+    }
+
+    public LocalDateTime getModifiedDateTime() {
+        return modifiedDateTime;
+    }
+
+    public void setModifiedDateTime(LocalDateTime modifiedDateTime) {
+        this.modifiedDateTime = modifiedDateTime;
+    }
+
+    public String getModifiedIpAdd() {
+        return modifiedIpAdd;
+    }
+
+    public void setModifiedIpAdd(String modifiedIpAdd) {
+        this.modifiedIpAdd = modifiedIpAdd;
+    }
+
+    public String getModifiedMacAdd() {
+        return modifiedMacAdd;
+    }
+
+    public void setModifiedMacAdd(String modifiedMacAdd) {
+        this.modifiedMacAdd = modifiedMacAdd;
+    }
+
+    public String getModifiedRemarks() {
+        return modifiedRemarks;
+    }
+
+    public void setModifiedRemarks(String modifiedRemarks) {
+        this.modifiedRemarks = modifiedRemarks;
+    }
+
+    public String getModifiedUri() {
+        return modifiedUri;
+    }
+
+    public void setModifiedUri(String modifiedUri) {
+        this.modifiedUri = modifiedUri;
+    }
+
 }

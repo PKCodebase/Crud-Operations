@@ -36,8 +36,12 @@ public class MstPlanTypeServiceImpl implements MstPlanTypeService {
         existingData.setPlanTypeNameHi(updatedData.getPlanTypeNameHi());
         existingData.setPlanTypeNameRl(updatedData.getPlanTypeNameRl());
         existingData.setPlanTypeDescription(updatedData.getPlanTypeDescription());
-        existingData.setCreatedBy(updatedData.getCreatedBy());
-        existingData.setRemarks(updatedData.getRemarks());
+        existingData.setModifiedBy(updatedData.getModifiedBy());
+        existingData.setModifiedIpAdd(updatedData.getModifiedIpAdd());
+        existingData.setModifiedMacAdd(updatedData.getModifiedMacAdd());
+        existingData.setModifiedRemarks(updatedData.getModifiedRemarks());
+        existingData.setModifiedUri(updatedData.getModifiedUri());
+
         return mstPlanTypeRepository.save(existingData);
 
     }
@@ -58,8 +62,5 @@ public class MstPlanTypeServiceImpl implements MstPlanTypeService {
     public MstPlanType getByGuid(String guid) {
       return mstPlanTypeRepository.findById(guid)
                 .orElseThrow(() -> new ResourceNotFoundException("GUID not found : " + guid));
-
     }
-
-
 }
