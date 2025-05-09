@@ -17,11 +17,11 @@ public class MstPlanType {
     @Column(name = "plan_type_guid", nullable = false, updatable = false, length = 36)
     private String planTypeGuid;
 
-    @NotNull(message="planTypeId can't be empty")
+    @NotNull(message="planTypeId can't be empty and must be unique")
     @Column(name = "plan_type_id", nullable = false, unique = true)
     private Long planTypeId;
 
-    @NotNull(message="planTypeCode can't be empty")
+    @NotNull(message="planTypeCode can't be empty and must be unique ")
     @Column(name = "plan_type_code", length = 10, nullable = false, unique = true)
     private String planTypeCode;
 
