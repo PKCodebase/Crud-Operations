@@ -3,6 +3,7 @@ package com.crud.entity;
 import com.fasterxml.jackson.annotation.JsonFormat;
 import jakarta.persistence.*;
 
+import jakarta.validation.constraints.NotNull;
 import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.UpdateTimestamp;
 
@@ -16,12 +17,15 @@ public class MstPlanType {
     @Column(name = "plan_type_guid", nullable = false, updatable = false, length = 36)
     private String planTypeGuid;
 
+    @NotNull(message="planTypeId can't be empty")
     @Column(name = "plan_type_id", nullable = false, unique = true)
     private Long planTypeId;
 
+    @NotNull(message="planTypeCode can't be empty")
     @Column(name = "plan_type_code", length = 10, nullable = false, unique = true)
     private String planTypeCode;
 
+    @NotNull(message="planTypeName can't be empty")
     @Column(name = "plan_type_name_en", nullable = false)
     private String planTypeNameEn;
 
@@ -34,9 +38,11 @@ public class MstPlanType {
     @Column(name = "plan_type_description")
     private String planTypeDescription;
 
+
     @Column(name = "is_active", nullable = false)
     private Boolean isActive = true;
 
+    @NotNull(message="createdBy can't be empty")
     @Column(name = "created_by" ,nullable = false)
     private String createdBy;
 
@@ -78,6 +84,9 @@ public class MstPlanType {
 
     @Column(name="modified_uri ")
     private String modifiedUri;
+
+    @Column(name="mcd_id")
+    private String mcdId;
 
     public Boolean getActive() {
         return isActive;
@@ -239,4 +248,11 @@ public class MstPlanType {
         this.modifiedUri = modifiedUri;
     }
 
+    public String getMcdId() {
+        return mcdId;
+    }
+
+    public void setMcdId(String mcdId) {
+        this.mcdId = mcdId;
+    }
 }
